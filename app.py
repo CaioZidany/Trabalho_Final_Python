@@ -21,45 +21,45 @@ def pagina_sobre():
 
 
 # Exemplo de rota para a página de glossário
-@app.route('/glossario')
-def glossario():
+@app.route('/cursos')
+def cursos():
 
-    glossario_de_termos = []
+    curso_de_lista = []
 
     with open(
-            'bd_glossario.csv',
+            'bd_cursos.csv',
             newline='', encoding='utf-8') as arquivo:
         reader = csv.reader(arquivo, delimiter=';')
         for l in reader:
-            glossario_de_termos.append(l)
+            curso_de_lista.append(l)
 
-    return render_template('glossario.html',
-                           glossario=glossario_de_termos)
+    return render_template('cursos.html',
+                           cursos=gcurso_de_lista)
 
 
-@app.route('/novo_termo')
+@app.route('/novo_curso')
 def novo_termo():
-    return render_template('adicionar_termo.html')
+    return render_template('adicionar_curso.html')
 
 
-@app.route('/criar_termo', methods=['POST', ])
-def criar_termo():
-    termo = request.form['termo']
+@app.route('/criar_curso', methods=['POST', ])
+def criar_curso():
+    termo = request.form['curso']
     definicao = request.form['definicao']
 
     with open(
-            'bd_glossario.csv', 'a',
+            'bd_cursos.csv', 'a',
             newline='', encoding='utf-8') as arquivo:
         writer = csv.writer(arquivo, delimiter=';')
-        writer.writerow([termo, definicao])
+        writer.writerow([curso, definicao])
 
-    return redirect(url_for('glossario'))
+    return redirect(url_for('cursos'))
 
 
-@app.route('/excluir_termo/<int:termo_id>', methods=['POST'])
-def excluir_termo(termo_id):
+@app.route('/excluir_cursos/<int:termo_id>', methods=['POST'])
+def excluir_cursos(termo_id):
 
-    with open('bd_glossario.csv', 'r', newline='') as file:
+    with open('bd_cursos.csv', 'r', newline='') as file:
         reader = csv.reader(file)
         linhas = list(reader)
 
@@ -70,11 +70,11 @@ def excluir_termo(termo_id):
             break
 
     # Salvar as alterações de volta no arquivo
-    with open('bd_glossario.csv', 'w', newline='') as file:
+    with open('bd_cursos.csv', 'w', newline='') as file:
         writer = csv.writer(file)
         writer.writerows(linhas)
 
-    return redirect(url_for('glossario'))
+    return redirect(url_for('cursos'))
 
 
 

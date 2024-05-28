@@ -38,13 +38,13 @@ def cursos():
 
 
 @app.route('/novo_curso')
-def novo_termo():
+def novo_curso():
     return render_template('adicionar_curso.html')
 
 
 @app.route('/criar_curso', methods=['POST', ])
 def criar_curso():
-    termo = request.form['curso']
+    curso = request.form['curso']
     definicao = request.form['definicao']
 
     with open(
@@ -56,16 +56,16 @@ def criar_curso():
     return redirect(url_for('cursos'))
 
 
-@app.route('/excluir_cursos/<int:termo_id>', methods=['POST'])
-def excluir_cursos(termo_id):
+@app.route('/excluir_cursos/<int:curso_id>', methods=['POST'])
+def excluir_cursos(curso_id):
 
     with open('bd_cursos.csv', 'r', newline='') as file:
         reader = csv.reader(file)
         linhas = list(reader)
 
-    # Encontrar e excluir o termo com base no ID
+    # Encontrar e excluir o curso com base no ID
     for i, linha in enumerate(linhas):
-        if i == termo_id:
+        if i == curso_id:
             del linhas[i]
             break
 

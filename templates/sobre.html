@@ -2,15 +2,32 @@
 {% block conteudo %}
 
     <h1>Sobre o projeto</h1>
-    <p>Este é um sistema educacional desenvolvido para a disciplina de Desenvolvimento de Aplicações Web.</p>
-    <p>Desenvolvido por: <a href="https://github.com/CaioZidany">@CaioZidany | Caio Zidany S. Gomes</a></p>
+    <p>Este é um sistema educacional desenvolvido para as disciplinas de Introdução à Programação e Tópicos Essenciais para Programação.</p>
+    <div class="d-flex flex-column">
+        <p class="mr-3">Desenvolvido por:</p>
+        <p class="mr-3"><a href="https://github.com/CaioZidany" target="_blank">@CaioZidany | Caio Zidany S. Gomes</a></p>
+        <p class="mr-3"><a href="https://github.com/SamuelloranD" target="_blank">@SamuelloranD | Samuel L S Araujo</a></p>
+        <!-- Adicione mais pessoas seguindo o mesmo padrão -->
+    </div>
 
     <h1>Sobre a equipe</h1>
-    <div class="card" style="width: 18rem;">
-      <img src="https://img.freepik.com/fotos-gratis/mulher-jovem-e-bonita-em-sueter-rosa-quente-aparencia-natural-sorridente-retrato-ligado-isolado-cabelo-comprido_285396-896.jpg" class="card-img-top" alt="Descrição da imagem">
-      <div class="card-body">
-        <p class="card-text">I'm Eliane Jerse, a data science researcher in the educational field.
-      </div>
+    <div class="d-flex flex-wrap"> <!-- Container flexível com quebra de linha -->
+        <div class="card mr-3" style="width: 18rem;"> <!-- mr-3 para dar espaço entre os elementos -->
+            <div class="card-body">
+                <p class="card-text">Samuel Lorand.</p>
+            </div>
+        </div>
+        <div class="card mr-3" style="width: 18rem;"> <!-- mr-3 para dar espaço entre os elementos -->
+          <div class="card-body">
+              <p class="card-text">Caio Zidany.</p>
+          </div>
+        </div>
+        <div class="card mr-3" style="width: 18rem;"> <!-- mr-3 para dar espaço entre os elementos -->
+            <div class="card-body">
+                <p class="card-text">Ruam Henrique.</p>
+            </div>
+        </div>
+        <!-- Adicione mais cartões de equipe seguindo o mesmo padrão -->
     </div>
 
 {% endblock %}

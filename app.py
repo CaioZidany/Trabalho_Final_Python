@@ -34,7 +34,7 @@ def cursos():
             curso_de_lista.append(l)
 
     return render_template('cursos.html',
-                           cursos=gcurso_de_lista)
+                           cursos=curso_de_lista)
 
 
 @app.route('/novo_curso')
